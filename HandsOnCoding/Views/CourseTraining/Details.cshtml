@@ -1,0 +1,51 @@
+﻿@model HandsOnCoding.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseDuration)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseDuration)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.CourseStatus == true)
+            {
+                <span class="badge badge-success" style="background-color:green;">Active</span>
+            }
+            else
+            {
+                <span class="badge badge-danger" style="background-color:red">Not Active</span>
+            }
+
+            @* @Html.DisplayFor(model => model.CourseStatus) *@
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-success btn-md" asp-action="Edit" asp-route-id="@Model?.CourseId">Edit</a> 
+    <a class="btn btn-warning btn-md" asp-action="IndexCourse">Back to List</a>
+</div>
